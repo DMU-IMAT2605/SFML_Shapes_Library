@@ -18,7 +18,7 @@
 
 int main() //!< Entry point for the application
 {
-	sf::RenderWindow window(sf::VideoMode(1024, 800), "Lab Book 1 - Shapes");
+	sf::RenderWindow window(sf::VideoMode(1024, 800), "Shapes Drawing Program");
 	window.setFramerateLimit(60);
 
 	
@@ -27,7 +27,7 @@ int main() //!< Entry point for the application
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
+			if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 			{
 				window.close();
 			}
