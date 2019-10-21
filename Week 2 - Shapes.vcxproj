@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -144,6 +144,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Square.cpp" />
+    <ClCompile Include="src\Rectangle.cpp" />
     <ClCompile Include="src\Arc.cpp" />
     <ClCompile Include="src\Circle.cpp" />
     <ClCompile Include="src\Dot.cpp" />
@@ -151,6 +153,7 @@
     <ClCompile Include="src\Line.cpp" />
     <ClCompile Include="src\Shapes.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Arc.h" />
@@ -160,6 +163,9 @@
     <ClInclude Include="include\main.h" />
     <ClInclude Include="include\Line.h" />
     <ClInclude Include="include\Shapes.h" />
+    <ClInclude Include="include\Rectangle.h" />
+    <ClInclude Include="include\Square.h" />
+    <ClInclude Include="include\Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
