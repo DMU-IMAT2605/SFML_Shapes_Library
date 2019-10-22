@@ -26,11 +26,11 @@
 
 using namespace std;
 
-Arc arc(50, 50, 0.78, 3.8, 150, 100);
+Arc arc(50, 50, 50, 150, 150, 100);
 Circle circle(40.5, 200,200);
-Ellipse ellipse;
+Ellipse ellipse(70, 30, 400,200);
 Line line;
-Dot dot;
+Dot dot(350,400);
 Square square;
 Rectangle rectangle;
 Triangle triangle;
@@ -41,8 +41,12 @@ int main() //!< Entry point for the application
 {
 	sf::RenderWindow window(sf::VideoMode(1024, 800), "Shapes Drawing Program");
 	window.setFramerateLimit(60);
+
 	arc.CreateArc(sf::Vector2f(arc.GetCentre().x, arc.GetCentre().y), sf::Color(255, 59, 6));
 	circle.CreateCircle(sf::Vector2f(circle.GetCentre().x, circle.GetCentre().y), sf::Color(sf::Color::Yellow));
+	ellipse.CreateEllipse(sf::Vector2f(ellipse.GetCentre().x, ellipse.GetCentre().y), sf::Color(sf::Color::Blue));
+	dot.CreateDot(sf::Vector2f(dot.GetPosition().x, dot.GetPosition().y), sf::Color(sf::Color::Red));
+	cout << dot.GetPosition().x << endl << dot.GetPosition().y << endl;
 
 	while (window.isOpen())
 	{
@@ -60,6 +64,8 @@ int main() //!< Entry point for the application
 		// Do your drawing here
 		window.draw(arc);
 		window.draw(circle);
+		window.draw(ellipse);
+		window.draw(dot);
 
 		window.display();
 	}
