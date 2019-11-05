@@ -32,7 +32,6 @@ void Arc:: CreateArc(sf::Vector2f pos, sf::Color colour)
 		m_ShapeVA[i].color = colour;
 	}
 	setPosition(pos);
-
 }
 void Arc::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
