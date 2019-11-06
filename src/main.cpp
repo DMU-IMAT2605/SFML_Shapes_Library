@@ -34,7 +34,7 @@ Line line;
 Dot dot(350,400);
 Square square(sf::Vector2f(30,30), 10);
 Rectangle rectangle;
-Triangle triangle;
+Triangle triangle(sf::Vector2f(600, 450), sf::Vector2f(650, 480), sf::Vector2f(625, 400));
 
 
 
@@ -50,6 +50,8 @@ int main() //!< Entry point for the application
 	dot.CreateDot(sf::Vector2f(dot.GetPosition().x, dot.GetPosition().y), sf::Color(sf::Color::Red));
 	square.CreateSquare(sf::Vector2f(60, 400), sf::Color(88,200,10));
 	rectangle.CreateRectangle(sf::Vector2f(100, 100),50, 30, sf::Color(30,100,100));
+	line.CreateLine(sf::Vector2f(400, 400), sf::Vector2f(10, 800), sf::Color(40,40,200));
+	triangle.CreateTriangle(sf::Color(200, 0, 180));
 	cout << dot.GetPosition().x << endl << dot.GetPosition().y << endl;
 
 	while (window.isOpen())
@@ -68,12 +70,13 @@ int main() //!< Entry point for the application
 				case (sf::Keyboard::Num1):
 				{
 					cout << arc.GetRotating() << endl;
-					arc.TransformShape(3, 3);
-					ellipse.RotateShape(45);
-					arc.SetRotating(true);
+					arc.TransformShape(10, 3);
+					triangle.ScaleShape(2);
+					
 					if (!arc.GetRotating())
 					{
-						
+						arc.RotateShape(45);
+						arc.SetRotating(true);
 					}
 					else
 					{
@@ -96,12 +99,14 @@ int main() //!< Entry point for the application
 		// Do your drawing here
 
 		window.draw(circle);
-		window.draw(ellipse, ellipse.state);
+		window.draw(ellipse);
 		window.draw(dot);
-		window.draw(arc, arc.state);
+		window.draw(arc);
 		window.draw(spyrograph);
-		window.draw(square, square.state);
+		window.draw(square);
 		window.draw(rectangle);
+		window.draw(line);
+		window.draw(triangle);
 		window.display();
 	}
 }

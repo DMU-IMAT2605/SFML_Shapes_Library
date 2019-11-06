@@ -21,6 +21,10 @@ void Rectangle::CreateRectangle(sf::Vector2f origin, float width, float height, 
 	m_ShapeVA[2].position = sf::Vector2f(m_fO.x + m_fW, m_fO.y - m_fH);
 	m_ShapeVA[3].position = sf::Vector2f(m_fO.x + m_fW, m_fO.y);
 	
+	m_ShapeVA[0].color = colour;
+	m_ShapeVA[1].color = colour;
+	m_ShapeVA[2].color = colour;
+	m_ShapeVA[3].color = colour;
 }
 
 void Rectangle::draw(sf::RenderTarget& target, sf::RenderStates states) const

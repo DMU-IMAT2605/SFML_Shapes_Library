@@ -2,8 +2,14 @@
 
 
 
+/*Line::Line()
+{
+}*/
+
 Line::Line()
 {
+	m_ShapeVA.setPrimitiveType(sf::LineStrip);
+	m_ShapeVA.resize(2);
 }
 
 
@@ -11,7 +17,12 @@ Line::~Line()
 {
 }
 
-void Line::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void Line::CreateLine(sf::Vector2f point1, sf::Vector2f point2, sf::Color colour)
 {
-	target.draw(m_ShapeVA);
+	m_ShapeVA[0].color = colour;
+	m_ShapeVA[1].color = colour;
+
+	m_ShapeVA[0].position = point1;
+	m_ShapeVA[1].position = point2;
 }
+

@@ -18,7 +18,6 @@ public:
 	void SetRadius(float radX,float radY); //!< Sets the radius of the arc.
 	void SetCentre(float cenX,float cenY); //!< Sets the centre for the arc.
 	void SetAngles(float startA, float endA); //!< Sets the length of the arc.
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 
 protected:

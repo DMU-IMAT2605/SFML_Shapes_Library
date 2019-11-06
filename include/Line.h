@@ -4,16 +4,13 @@ class Line :
 	public Shapes
 {
 public:
-	Line();
 	//Line();
+	Line();
 	~Line();
 
-	void CreateLine() 
-	{
+	void CreateLine(sf::Vector2f point1, sf::Vector2f point2, sf::Color colour);
 
-	}
-
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
+	
 
 protected:
 

@@ -38,15 +38,19 @@ void Shapes::TransformShape(float x, float y)
 
 void Shapes::RotateShape(float angle)
 {
-	m_fRotateA = angle;
-	m_Rotation.rotate(m_fRotateA, m_ShapeVA[0].position);
+	//m_fRotateA = angle;
+	m_Rotation.rotate(angle, m_ShapeVA[0].position);
 	state.transform = m_Rotation;
+	
+	
+	
 }
 
 void Shapes::ScaleShape(float scale)
 {
 
-
+	m_Rotation.scale(sf::Vector2f(scale, scale), m_ShapeVA[0].position);
+	state.transform = m_Rotation;
 }
 
 void Shapes::SetRotating(bool rotating)

@@ -5,20 +5,18 @@ class Triangle : public Shapes
 public:
 
 	Triangle();
-	Triangle(float pos1, float pos2, float pos3);
+	Triangle(sf::Vector2f pos1, sf::Vector2f pos2, sf::Vector2f pos3);
 
 	void CreateTriangle(sf::Color colour);
 	
 
 	
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates states)const;
-
 protected:
 
 
 private:
 
-	float m_fPos1, m_fPos2, m_fPos3;
+	sf::Vector2f m_fPos1, m_fPos2, m_fPos3;
 
 };
 
