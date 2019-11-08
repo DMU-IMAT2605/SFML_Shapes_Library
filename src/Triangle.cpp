@@ -1,9 +1,5 @@
 #include "Triangle.h"
 
-Triangle::Triangle()
-{
-
-}
 
 Triangle::Triangle(sf::Vector2f pos1, sf::Vector2f pos2, sf::Vector2f pos3)
 {
@@ -25,7 +21,7 @@ void Triangle::CreateTriangle(sf::Color colour)
 	m_ShapeVA[1].position = m_fPos2;
 	m_ShapeVA[2].position = m_fPos3;
 
-	m_ShapeVA[0].color = colour;
+	m_ShapeVA[0].color = (colour + sf::Color(50,190,50));
 	m_ShapeVA[1].color = colour;
 	m_ShapeVA[2].color = colour;
 }

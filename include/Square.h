@@ -3,18 +3,10 @@
 class Square :	public Rectangle
 {
 public:
-	Square();
-	Square(sf::Vector2f origin, float width);
+	Square() {}; //!< Default constructor.
+	Square(sf::Vector2f origin, float width); //!< Constructor initialising values and creating the origin of the shape and its width.
 
-	void CreateSquare(sf::Vector2f origin, sf::Color colour);
-
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-
-protected:
-
-
-private:
-
+	void CreateSquare(sf::Color colour); //!< Creates the square with its origin and colour set at each point.
 
 };
 

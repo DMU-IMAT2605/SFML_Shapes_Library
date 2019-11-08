@@ -1,11 +1,6 @@
 #include "Ellipse.h"
 
 
-
-Ellipse::Ellipse()
-{
-}
-
 Ellipse::Ellipse(float radX, float radY, float cenX, float cenY)
 {
 	m_iArrSize = 60;
@@ -19,12 +14,6 @@ Ellipse::Ellipse(float radX, float radY, float cenX, float cenY)
 	m_ShapeVA.resize(m_iArrSize);
 }
 
-
-Ellipse::~Ellipse()
-{
-
-}
-
 void Ellipse::CreateEllipse(sf::Vector2f pos, sf::Color colour)
 {
 	for (int i = 0; i < m_ShapeVA.getVertexCount(); i++)
@@ -34,9 +23,4 @@ void Ellipse::CreateEllipse(sf::Vector2f pos, sf::Color colour)
 		m_ShapeVA[i].color = colour;
 	}
 	setPosition(pos);
-}
-
-void Ellipse::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-	target.draw(m_ShapeVA);
 }

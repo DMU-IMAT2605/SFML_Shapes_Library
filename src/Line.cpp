@@ -1,11 +1,6 @@
 #include "Line.h"
 
 
-
-/*Line::Line()
-{
-}*/
-
 Line::Line()
 {
 	m_ShapeVA.setPrimitiveType(sf::LineStrip);

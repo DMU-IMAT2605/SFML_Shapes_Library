@@ -26,11 +26,6 @@ void Dot::CreateDot(sf::Vector2f pos, sf::Color colour)
 	m_ShapeVA[0].color = sf::Color(100, 0, 180);
 }
 
-void Dot::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-	target.draw(m_ShapeVA);
-}
-
 sf::Vector2f Dot::GetPosition()
 {
 	return sf::Vector2f(m_fPX, m_fPY);

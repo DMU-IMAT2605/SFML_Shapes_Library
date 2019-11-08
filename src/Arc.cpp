@@ -1,11 +1,6 @@
 #include "Arc.h"
 
 
-
-Arc::Arc()
-{
-
-}
 Arc::Arc(float radX, float radY, float startA, float endA, float cenX, float cenY) 
 {
 	m_iArrSize = 45;
@@ -24,12 +19,24 @@ Arc::Arc(float radX, float radY, float startA, float endA, float cenX, float cen
 void Arc:: CreateArc(sf::Vector2f pos, sf::Color colour)
 {
 	//m_fTheta = m_fA1; //!< Set theta to start at the beginning angle for the arc.
-
+	m_iColIncrement = 0;
 	for (int i = 0; i < m_ShapeVA.getVertexCount(); i++)
 	{
 		m_fTheta += m_fThetaStep; // Increment theta by the displacement value defined in the header.
 		m_ShapeVA[i].position = sf::Vector2f((pos.x + cos(m_fTheta) * m_fRX),(pos.y + sin(m_fTheta) * m_fRY)); // Updates the position of the arc using the arc formula.
-		m_ShapeVA[i].color = colour;
+		//! Used to make the colour of the shape a gradient:
+		if (m_iColIncrement <= 6) 
+		{
+			m_iColIncrement = i;
+			m_ShapeVA[i].color = RainbowColour[i];
+			m_iColIncrement++;
+		}
+
+		else 
+		{
+			m_iColIncrement = 0;
+		}
+
 	}
 	setPosition(pos);
 }

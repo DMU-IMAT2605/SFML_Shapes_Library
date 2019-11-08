@@ -1,17 +1,3 @@
-/*! \mainpage Lab 2 - Shapes
-*
-* This program gives you a basic SFML winow in which to draw your shapes.
-*
-* The classes and files you use are up to you.  
-*
-* This software froms the basis of your submission for lab book 1
-*/
-
-/*! \file main.cpp
-* \brief Main file for the application
-*
-* Contains the entry point of the application 
-*/
 
 #include "SFML/Graphics.hpp"
 #include <Dot.h>
@@ -26,16 +12,17 @@
 
 using namespace std;
 
+
+//! Instantiation of the shape objects using their constructor values.
 Arc arc(50, 50, 0.5, 4.5, 150, 100);
-Arc spyrograph(60, 60, 80, 160, 300, 300);
+Arc spyrograph(60, 60, 80, 160, 300, 300); //!< A version of the arc using degrees for the start and end angles. Creates a spyrograph.
 Circle circle(40.5, 200,200);
 Ellipse ellipse(70, 30, 400,200);
 Line line;
 Dot dot(350,400);
-Square square(sf::Vector2f(30,30), 10);
+Square square(sf::Vector2f(30,30), 90);
 Rectangle rectangle;
 Triangle triangle(sf::Vector2f(600, 450), sf::Vector2f(650, 480), sf::Vector2f(625, 400));
-
 
 
 int main() //!< Entry point for the application
@@ -43,17 +30,19 @@ int main() //!< Entry point for the application
 	sf::RenderWindow window(sf::VideoMode(1024, 800), "Shapes Drawing Program");
 	window.setFramerateLimit(60);
 
-	arc.CreateArc(sf::Vector2f(arc.GetCentre().x, arc.GetCentre().y), sf::Color(255, 59, 6));
-	spyrograph.CreateArc(sf::Vector2f(spyrograph.GetCentre().x, spyrograph.GetCentre().y), sf::Color(100, 150, 10));
-	circle.CreateCircle(sf::Vector2f(circle.GetCentre().x, circle.GetCentre().y), sf::Color(sf::Color::Yellow));
-	ellipse.CreateEllipse(sf::Vector2f(ellipse.GetCentre().x, ellipse.GetCentre().y), sf::Color(sf::Color::Blue));
+	//! Creation of the shapes
+	arc.CreateArc(sf::Vector2f(800, 100), sf::Color(255, 59, 6));
+	spyrograph.CreateArc(sf::Vector2f(800,450), sf::Color(100, 150, 10));
+	circle.CreateCircle(sf::Vector2f(800, 600), sf::Color(sf::Color::Yellow));
+	ellipse.CreateEllipse(sf::Vector2f(800,250), sf::Color(sf::Color::Blue));
 	dot.CreateDot(sf::Vector2f(dot.GetPosition().x, dot.GetPosition().y), sf::Color(sf::Color::Red));
-	square.CreateSquare(sf::Vector2f(60, 400), sf::Color(88,200,10));
-	rectangle.CreateRectangle(sf::Vector2f(100, 100),50, 30, sf::Color(30,100,100));
-	line.CreateLine(sf::Vector2f(400, 400), sf::Vector2f(10, 800), sf::Color(40,40,200));
+	square.CreateSquare(sf::Color(88,200,10));
+	rectangle.CreateRectangle(sf::Vector2f(80,350),150, 80, sf::Color(30,100,100));
+	line.CreateLine(sf::Vector2f(400, 400), sf::Vector2f(10, 800),sf::Color::Blue );
 	triangle.CreateTriangle(sf::Color(200, 0, 180));
-	cout << dot.GetPosition().x << endl << dot.GetPosition().y << endl;
-
+	//! Welcome message.
+	cout << "|| Welcome to my shapes library ! ||" << endl << endl << "  Below will be descriptions of what has occurred in the window : " << endl << endl;
+	
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -63,40 +52,44 @@ int main() //!< Entry point for the application
 			{
 				window.close();
 			}
-			if (sf::Event::KeyPressed)
+
+			if (event.type == sf::Event::KeyPressed)
 			{
 				switch (event.key.code)
 				{
-				case (sf::Keyboard::Num1):
-				{
-					cout << arc.GetRotating() << endl;
-					arc.TransformShape(10, 3);
-					triangle.ScaleShape(2);
-					
-					if (!arc.GetRotating())
+					case(sf::Keyboard::Num2):
 					{
-						arc.RotateShape(45);
-						arc.SetRotating(true);
+						ellipse.RotateShape(5);
+						cout << "Rotated ellipse by 5" << endl;
+						break;
 					}
-					else
+					case(sf::Keyboard::Num3):
 					{
-						arc.SetRotating(false);
+						arc.ScaleShape(1.2);
+						cout << "Scaled arc by 1.2" << endl;
+						break;
 					}
-					cout << arc.GetRotating() << endl;
-					break;
-				}
-				case (sf::Keyboard::Num2):
-				{
-
-					break;
-				}
+					case(sf::Keyboard::Num4):
+					{
+						square.TransformShape(5, 10);
+						cout << "Translated square by 5 in the horizontal and 10 in the vertical" << endl;
+						break;
+					}
+					case(sf::Keyboard::Num1):
+					{
+						line.CreateLine(sf::Vector2f(400, 400), sf::Vector2f(800, 800), sf::Color::Red);
+						cout << "Changed the definition of the line to a different end point and colour" << endl;
+						break;
+					}
+					default:
+						break;
 				}
 			}
 		}
 
 		
 		window.clear();
-		// Do your drawing here
+		//! Drawing of shapes
 
 		window.draw(circle);
 		window.draw(ellipse);
@@ -110,3 +103,4 @@ int main() //!< Entry point for the application
 		window.display();
 	}
 }
+

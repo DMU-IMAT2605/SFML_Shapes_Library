@@ -1,14 +1,6 @@
 #include "Circle.h"
 
 
-
-Circle::Circle()
-{
-	m_fRX = GetRadius().x;
-	m_fRY = m_fRX;
-	
-
-}
 Circle::Circle(float radXY,  float cenX, float cenY)
 {
 	m_iArrSize = 60;
@@ -21,10 +13,6 @@ Circle::Circle(float radXY,  float cenX, float cenY)
 	m_ShapeVA.resize(m_iArrSize);
 }
 
-Circle::~Circle()
-{
-}
-
 
 void Circle::CreateCircle(sf::Vector2f pos, sf::Color colour)
 {
@@ -35,8 +23,4 @@ void Circle::CreateCircle(sf::Vector2f pos, sf::Color colour)
 		m_ShapeVA[i].color = colour;
 	}
 	setPosition(pos);
-}
-void Circle::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-	target.draw(m_ShapeVA);
 }

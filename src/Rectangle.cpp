@@ -6,8 +6,8 @@ Rectangle::Rectangle()
 	m_fW = 45;
 	m_fH = 20;
 
-	m_ShapeVA.setPrimitiveType(sf::Quads);
-	m_ShapeVA.resize(4);
+	m_ShapeVA.setPrimitiveType(sf::Quads); //!< Set the type for the vertex array to quads.
+	m_ShapeVA.resize(4); //!< Size the quads to 4 points.
 }
 
 void Rectangle::CreateRectangle(sf::Vector2f origin, float width, float height, sf::Color colour)
@@ -27,7 +27,4 @@ void Rectangle::CreateRectangle(sf::Vector2f origin, float width, float height, 
 	m_ShapeVA[3].color = colour;
 }
 
-void Rectangle::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-	target.draw(m_ShapeVA);
-}
+
